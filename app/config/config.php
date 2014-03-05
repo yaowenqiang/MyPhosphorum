@@ -5,16 +5,17 @@ return new \Phalcon\Config(array(
 		'adapter'  => 'Mysql',
 		'host'     => 'localhost',
 		'username' => 'root',
-		'password' => '',
+		'password' => '1987123',
 		'name'     => 'forum',
 	),
 	'application' => array(
-		'controllersDir' => __DIR__ . '/../../app/controllers/',
-		'modelsDir'      => __DIR__ . '/../../app/models/',
-		'viewsDir'       => __DIR__ . '/../../app/views/',
-		'pluginsDir'     => __DIR__ . '/../../app/plugins/',
-		'libraryDir'     => __DIR__ . '/../../app/library/',
+		'controllersDir' => $appDir.'/app/controllers/',
+		'modelsDir'      => $appDir.'/app/models/',
+		'viewsDir'       => $appDir.'/app/views/',
+		'pluginsDir'     => $appDir.'/app/plugins/',
+		'libraryDir'     => $appDir.'/app/library/',
 		'baseUri'        => '/',
+		'debug'          => true,
 	),
 	'models' => array(
 		'metadata' => array(
@@ -22,9 +23,9 @@ return new \Phalcon\Config(array(
 		)
 	),
 	'github' => array(
-		'clientId' => '',
-		'clientSecret' => '',
-		'redirectUri' => 'http://forum.phalconphp.com/forum/login/oauth/access_token'
+		'clientId' => '21ac346fbbde907a9f51',
+		'clientSecret' => '370427b8b42a91d3510edea6e3304b7f1f57b36b',
+		'redirectUri' => 'http://115.28.221.31/forum/login/oauth/access_token'
 	),
 	'amazon' => array(
 		'AWSAccessKeyId' => '',

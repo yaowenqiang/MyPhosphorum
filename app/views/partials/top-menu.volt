@@ -8,17 +8,17 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		  </button>
-		  {{ link_to('', 'Phosphorum', 'class': 'navbar-brand') }}
+		  {{ link_to('forum/', 'Phosphorum', 'class': 'navbar-brand') }}
 		</div>
 
 		<div class="collapse navbar-collapse">
 		  <ul class="nav navbar-nav navbar-right">
 			{%- if session.get('identity') -%}
-				<li>{{ link_to('post/discussion', 'Start a Discussion', 'class': 'btn btn-default btn-info', 'rel': 'nofollow') }}</li>
+				<li>{{ link_to('forum/post/discussion', 'Start a Discussion', 'class': 'btn btn-default btn-info', 'rel': 'nofollow') }}</li>
 			{%- else -%}
-				<li>{{ link_to('login/oauth/authorize', 'Log In with Github', 'class': 'btn btn-default btn-info', 'rel': 'nofollow') }}</li>
+				<li>{{ link_to('forum/login/oauth/authorize', 'Log In with Github', 'class': 'btn btn-default btn-info', 'rel': 'nofollow') }}</li>
 			{%- endif -%}
-			<li>{{ link_to('', '<span class="glyphicon glyphicon-comment"></span>', 'title': 'Discussions') }}</li>
+			<li>{{ link_to('forum/', '<span class="glyphicon glyphicon-comment"></span>', 'title': 'Discussions') }}</li>
 			<li class="dropdown">
           		<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Search">
           			<span class="glyphicon glyphicon-search"></span> <b class="caret"></b>
@@ -31,7 +31,7 @@
 					</li>
 				</ul>
           	</li>
-			<li>{{ link_to('activity', '<span class="glyphicon glyphicon-eye-open"></span>', 'title': 'Activity') }}</li>
+			<li>{{ link_to('forum/activity', '<span class="glyphicon glyphicon-eye-open"></span>', 'title': 'Activity') }}</li>
 
 			<li class="dropdown">
 
@@ -44,7 +44,7 @@
 						{% if categories is defined %}
 							{% for category in categories %}
 								<li>
-									{{ link_to('category/' ~ category.id ~ '/' ~ category.slug,
+									{{ link_to('forum/category/' ~ category.id ~ '/' ~ category.slug,
 										category.name ~ '<span class="label label-default" style="float: right">' ~ category.number_posts ~ '</span>')
 									}}
 								</li>
@@ -54,11 +54,11 @@
 				{% endcache %}
 			</li>
 
-			<li>{{ link_to('help', '<span class="glyphicon glyphicon-question-sign"></span>', 'title': 'Help') }}</li>
+			<li>{{ link_to('forum/help', '<span class="glyphicon glyphicon-question-sign"></span>', 'title': 'Help') }}</li>
 
 			{% if session.get('identity') %}
-			<li>{{ link_to('settings', '<span class="glyphicon glyphicon-cog"></span>', 'title': 'Settings') }}</li>
-			<li>{{ link_to('logout', '<span class="glyphicon glyphicon-off"></span>', 'title': 'Logout') }}</li>
+			<li>{{ link_to('forum/settings', '<span class="glyphicon glyphicon-cog"></span>', 'title': 'Settings') }}</li>
+			<li>{{ link_to('forum/logout', '<span class="glyphicon glyphicon-off"></span>', 'title': 'Logout') }}</li>
 			{% endif %}
 		  </ul>
 		</div>

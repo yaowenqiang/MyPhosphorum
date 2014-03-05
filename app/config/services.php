@@ -72,7 +72,13 @@ $di->set('db', function() use ($config) {
 		});
 	}
 
-	$connection = new DatabaseConnection($config->database->toArray());
+	//$connection = new DatabaseConnection($config->database->toArray());
+    $connection = new DatabaseConnection(array(
+        'host' =>'localhost',
+        'username'=>'root',
+        'password'=>'1987123',
+        'dbname'=>'forum'
+    ));
 
 	if ($debug) {
 		//Assign the eventsManager to the db adapter instance

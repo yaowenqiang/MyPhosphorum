@@ -38,7 +38,8 @@ class OAuth extends \Phalcon\DI\Injectable
 		$url = $this->_endPointAuthorize.
 			'?client_id='.$this->_clientId.
 			'&redirect_uri='.$this->_redirectUriAuthorize.
-                urlencode('&statekey=' .$key) . // add the tokenkey as a query param. Then we will be able to use it to check token authenticity
+                //urlencode('&statekey=' .$key) . // add the tokenkey as a query param. Then we will be able to use it to check token authenticity
+                '&state='.$key. // add the tokenkey as a query param. Then we will be able to use it to check token authenticity
 			'&state='.$token.
 			'&scope=user:email';
 		$this->response->redirect($url, true);
@@ -48,21 +49,19 @@ class OAuth extends \Phalcon\DI\Injectable
 	{
 
         // check the securtity - anti csrf token
-        $key = $this->request->getQuery('statekey');
+        //$key = $this->request->getQuery('statekey');
         $value = $this->request->getQuery('state');
 
-        if (!$this->di["security"]->checkToken($key, $value)) {
-            return false;
-		}
-
+        //if (!$this->di["security"]->checkToken($key, $value)) {
+            //return false;
+		//}
 		$this->view->disable();
 		$response = $this->send($this->_endPointAccessToken, array(
 			'client_id' => $this->_clientId,
 			'client_secret' => $this->_clientSecret,
 			'code' => $this->request->getQuery('code'),
-			'state' => $this->request->getQuery('state')
+			//'state' => $this->request->getQuery('state')
 		));
-
 		return $response;
 	}
 

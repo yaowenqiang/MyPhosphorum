@@ -35,7 +35,7 @@
 				<ul class="nav nav-tabs preview-nav">
 					<li class="active"><a href="#" onclick="return false">Write</a></li>
 					<li><a href="#" onclick="return false">Preview</a></li>
-					<li class="pull-right">{{ link_to('help/markdown', 'Help', 'parent': '_new') }}</li>
+					<li class="pull-right">{{ link_to('forum/help/markdown', 'Help', 'parent': '_new') }}</li>
 				</ul>
 
 				<div id="comment-box">
@@ -48,7 +48,7 @@
 
 			  <p>
 				<div class="pull-left">
-					{{ link_to('', 'Back to discussions') }}
+					{{ link_to('forum/', 'Back to discussions') }}
 				</div>
 				<div class="pull-right">
 					<button type="submit" class="btn btn-success">Submit Discussion</button>

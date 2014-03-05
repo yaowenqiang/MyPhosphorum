@@ -28,9 +28,9 @@
 								{% if activity.type == 'U' %}
 								has joined the forum
 								{% elseif activity.type == 'P' %}
-								has posted {{ link_to('discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
+								has posted {{ link_to('forum/discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
 								{% elseif activity.type == 'C' %}
-								has commented in {{ link_to('discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
+								has commented in {{ link_to('forum/discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
 								{% endif %}
 								<span class="date">{{ activity.getHumanCreatedAt() }}</span>
 							</td></tr>

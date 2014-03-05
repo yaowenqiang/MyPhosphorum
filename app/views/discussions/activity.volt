@@ -14,7 +14,7 @@
 			{% else %}
 			<li>
 			{% endif %}
-			{{ link_to('activity' ~ order, label) }}
+			{{ link_to('forum/activity' ~ order, label) }}
 			</li>
 		{% endfor %}
 	</ul>
@@ -27,14 +27,14 @@
 			</td>
 			<td>
 				<div class="activity">
-					<span>{{ link_to('user/' ~ activity.user.id ~ '/' ~ activity.user.login, activity.user.name|e) }}</span>
+					<span>{{ link_to('forum/user/' ~ activity.user.id ~ '/' ~ activity.user.login, activity.user.name|e) }}</span>
 
 					{% if activity.type == 'U' %}
 					has joined the forum
 					{% elseif activity.type == 'P' %}
-					has posted {{ link_to('discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
+					has posted {{ link_to('forum/discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
 					{% elseif activity.type == 'C' %}
-					has commented in {{ link_to('discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
+					has commented in {{ link_to('forum/discussion/' ~ activity.post.id ~ '/' ~ activity.post.slug, activity.post.title|e) }}
 					{% endif %}
 
 					<span class="date">{{ activity.getHumanCreatedAt() }}</span>

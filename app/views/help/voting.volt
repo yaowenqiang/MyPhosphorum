@@ -2,8 +2,8 @@
 <div class="container help">
 
 	<ol class="breadcrumb">
-		<li>{{ link_to('', 'Home') }}</a></li>
-		<li>{{ link_to('help', 'Help') }}</a></li>
+		<li>{{ link_to('forum/', 'Home') }}</a></li>
+		<li>{{ link_to('forum/help', 'Help') }}</a></li>
 	</ol>
 
 	<h1>Feedback system</h1>
@@ -22,7 +22,7 @@
 	</p>
 
 	<p>
-		You can see how many votes you have on your {{ link_to('settings', 'settings') }} page.
+		You can see how many votes you have on your {{ link_to('forum/settings', 'settings') }} page.
 	</p>
 
 </div>

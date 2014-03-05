@@ -105,7 +105,7 @@ var Forum = {
 		var element = $(event.data.element);
 		$.ajax({
 			dataType: 'json',
-			url: Forum._uri + 'discussion/vote-up/' + element.data('id')
+			url: Forum._uri + 'forum/discussion/vote-up/' + element.data('id')
 		}).done(function(response){
 			if (response.status == "error") {
 				$('#errorModal .modal-body').html(response.message);
@@ -124,7 +124,7 @@ var Forum = {
 		var element = $(event.data.element);
 		$.ajax({
 			dataType: 'json',
-			url: Forum._uri + 'discussion/vote-down/' + element.data('id')
+			url: Forum._uri + 'forum/discussion/vote-down/' + element.data('id')
 		}).done(function(response){
 			if (response.status == "error") {
 				$('#errorModal .modal-body').html(response.message);
@@ -181,7 +181,7 @@ var Forum = {
 		var element = $(event.data.element);
 		$.ajax({
 			dataType: 'json',
-			url: Forum._uri + 'reply/accept/' + element.data('id')
+			url: Forum._uri + 'forum/reply/accept/' + element.data('id')
 		}).done(function(response){
 			if (response.status == "error") {
 				$('#errorModal .modal-body').html(response.message);
@@ -243,7 +243,7 @@ var Forum = {
 			if (content !== '') {
 				$.ajax({
 					method: 'POST',
-					url: Forum._uri + 'preview',
+					url: Forum._uri + 'forum/preview',
 					data: {'content': content }
 				}).done(function(parent, response){
 					$('#preview-box', parent).html(response);

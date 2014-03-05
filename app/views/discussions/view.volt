@@ -27,8 +27,8 @@
 <div class="container">
 
 	<ol class="breadcrumb">
-		<li>{{ link_to('', 'Home') }}</a></li>
-		<li>{{ link_to('category/' ~ post.category.id ~ '/' ~ post.category.slug, post.category.name) }}</a></li>
+		<li>{{ link_to('forum/', 'Home') }}</a></li>
+		<li>{{ link_to('forum/category/' ~ post.category.id ~ '/' ~ post.category.slug, post.category.name) }}</a></li>
 	</ol>
 
 	<p>
@@ -72,7 +72,7 @@
 			<tr>
 				<td valign="top" align="center" class="small">
 					<img src="https://secure.gravatar.com/avatar/{{ post.user.gravatar_id }}?s=48&amp;r=pg&amp;d=identicon" class="img-rounded"><br>
-					<span>{{ link_to('user/' ~ post.user.id ~ '/' ~ post.user.login, post.user.name|e, 'class': 'user-moderator-' ~ post.user.moderator) }}</span><br>
+					<span>{{ link_to('forum/user/' ~ post.user.id ~ '/' ~ post.user.login, post.user.name|e, 'class': 'user-moderator-' ~ post.user.moderator) }}</span><br>
 					<span class="karma">{{ post.user.getHumanKarma() }}</span>
 				</td>
 				<td class="post-body {% if (post.votes_up - post.votes_down) <= -10 %}post-negative-body{% endif %}">
@@ -95,8 +95,8 @@
 					</div>
 					<div class="posts-buttons" align="right">
 						{%- if post.users_id == currentUser or moderator == 'Y' -%}
-							{{ link_to('edit/discussion/' ~ post.id, '<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit', "class": "btn btn-default btn-xs") }}
-							{{ link_to('delete/discussion/' ~ post.id, '<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete', "class": "btn btn-default btn-xs") }}&nbsp;
+							{{ link_to('forum/edit/discussion/' ~ post.id, '<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit', "class": "btn btn-default btn-xs") }}
+							{{ link_to('forum/delete/discussion/' ~ post.id, '<span class="glyphicon glyphicon-remove"></span>&nbsp;Delete', "class": "btn btn-default btn-xs") }}&nbsp;
 						{%- endif %}
 						{%- if currentUser -%}
 							<a href="#" onclick="return false" class="btn btn-danger btn-xs vote-post-down" data-id="{{ post.id }}">
@@ -126,7 +126,7 @@
 				<td class="small" valign="top" align="center">
 
 					<img src="https://secure.gravatar.com/avatar/{{ reply.user.gravatar_id }}?s=48&amp;r=pg&amp;d=identicon" class="img-rounded"><br>
-					<span>{{ link_to('user/' ~ reply.user.id ~ '/' ~ reply.user.login, reply.user.name|e, 'class': 'user-moderator-' ~ reply.user.moderator) }}</span><br>
+					<span>{{ link_to('forum/user/' ~ reply.user.id ~ '/' ~ reply.user.login, reply.user.name|e, 'class': 'user-moderator-' ~ reply.user.moderator) }}</span><br>
 					<span class="karma">{{ reply.user.getHumanKarma() }}</span>
 
 					{%- if reply.accepted == 'Y' -%}
@@ -200,13 +200,13 @@
 			<tr>
 				<td valign="top" class="small" align="center">
 					<img src="https://secure.gravatar.com/avatar/{{ session.get('identity-gravatar') }}?s=48&amp;r=pg&amp;d=identicon" class="img-rounded"><br>
-					<span>{{ link_to('', 'You') }}</span>
+					<span>{{ link_to('forum/', 'You') }}</span>
 				</td>
 				<td>
 					<ul class="nav nav-tabs preview-nav">
 						<li class="active"><a href="#" onclick="return false">Comment</a></li>
 						<li><a href="#" onclick="return false">Preview</a></li>
-						<li class="pull-right">{{ link_to('help/markdown', 'Help', 'parent': '_new') }}</li>
+						<li class="pull-right">{{ link_to('forum/help/markdown', 'Help', 'parent': '_new') }}</li>
 					</ul>
 
 					<form method="post" autocomplete="off" role="form">
@@ -219,7 +219,7 @@
 						</p>
 						<p>
 							<div class="pull-left">
-								{{- link_to('', 'Back to discussions') -}}
+								{{- link_to('forum/', 'Back to discussions') -}}
 							</div>
 							<div class="pull-right">
 								<button type="submit" class="btn btn-success">Add Comment</button>
@@ -231,10 +231,10 @@
 				<td></td>
 				<td>
 					<div class="pull-left">
-						{{- link_to('', 'Back to discussions') -}}
+						{{- link_to('forum/', 'Back to discussions') -}}
 					</div>
 					<div class="pull-right">
-						{{- link_to('login/oauth/authorize', 'Log In to Comment', 'class': 'btn btn-info') -}}
+						{{- link_to('forum/login/oauth/authorize', 'Log In to Comment', 'class': 'btn btn-info') -}}
 					</div>
 				</td>
 			{%- endif -%}

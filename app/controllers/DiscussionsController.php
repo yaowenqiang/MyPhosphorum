@@ -219,7 +219,7 @@ class DiscussionsController extends \Phalcon\Mvc\Controller
 			$post->content = $this->request->getPost('content');
 
 			if ($post->save()) {
-				return $this->response->redirect('discussion/' . $post->id . '/' . $post->slug);
+				return $this->response->redirect('forum/discussion/' . $post->id . '/' . $post->slug);
 			}
 
 			foreach ($post->getMessages() as $message) {
@@ -280,7 +280,7 @@ class DiscussionsController extends \Phalcon\Mvc\Controller
 			}
 
 			if ($post->save()) {
-				return $this->response->redirect('discussion/' . $post->id . '/' . $post->slug);
+				return $this->response->redirect('forum/discussion/' . $post->id . '/' . $post->slug);
 			}
 
 			foreach ($post->getMessages() as $message) {
@@ -510,7 +510,7 @@ class DiscussionsController extends \Phalcon\Mvc\Controller
 						}
 					}
 
-					return $this->response->redirect('discussion/' . $post->id . '/' . $post->slug . '#C' . $postReply->id);
+					return $this->response->redirect('forum/discussion/' . $post->id . '/' . $post->slug . '#C' . $postReply->id);
 				}
 
 				foreach ($postReply->getMessages() as $message) {
@@ -865,7 +865,7 @@ class DiscussionsController extends \Phalcon\Mvc\Controller
 			if ($user->save()) {
 				$this->session->get('timezone', $user->timezone);
 				$this->flashSession->success('Settings were successfully updated');
-				return $this->response->redirect();
+				return $this->response->redirect('forum/');
 			}
 		} else {
 			$this->tag->displayTo('timezone', $user->timezone);
@@ -891,6 +891,6 @@ class DiscussionsController extends \Phalcon\Mvc\Controller
 
 	public function helpAction()
 	{
-		$this->response->redirect('discussion/1/welcome-to-the-forum');
+		$this->response->redirect('forum/discussion/1/welcome-to-the-forum');
 	}
 }

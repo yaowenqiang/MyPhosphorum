@@ -10,11 +10,11 @@
 		{% set orders = ['': 'Forum', '/irc': 'IRC'] %}
 		{% for order, label in orders %}
 			{% if order == '' %}
-			<li class="active">
-			{% else %}
 			<li>
+			{% else %}
+			<li class="active">
 			{% endif %}
-			{{ link_to('activity' ~ order, label) }}
+			{{ link_to('forum/activity' ~ order, label) }}
 			</li>
 		{% endfor %}
 	</ul>

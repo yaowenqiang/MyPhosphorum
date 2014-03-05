@@ -12,7 +12,7 @@ class SessionController extends \Phalcon\Mvc\Controller
 
 	protected function indexRedirect()
 	{
-		return $this->response->redirect('discussions');
+		return $this->response->redirect('forum/discussions');
 	}
 
     /**
@@ -46,7 +46,6 @@ class SessionController extends \Phalcon\Mvc\Controller
     public function accessTokenAction()
     {
     	$oauth = new OAuth($this->config->github);
-
     	$response = $oauth->accessToken();
     	if (is_array($response)) {
 

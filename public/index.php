@@ -9,17 +9,18 @@ if (!isset($_GET['_url'])) {
 /**
  * Read the configuration
  */
-$config = include __DIR__ . "/../app/config/config.php";
+$appDir = dirname(dirname(__DIR__.'./../'));
+$config = include $appDir . "/app/config/config.php";
 
 /**
  * Include the loader
  */
-require __DIR__ . "/../app/config/loader.php";
+require  $appDir."/app/config/loader.php";
 
-/** 
+/**
  * Include composer autoloader
  */
-require __DIR__ . "/../vendor/autoload.php";
+require $appDir . "/vendor/autoload.php";
 
 try {
 
@@ -40,6 +41,6 @@ try {
 
 	echo $application->handle()->getContent();
 
-} catch (Exception $e) { 
+} catch (Exception $e) {
 	echo 'Sorry, an error has ocurred :('; echo $e->getMessage();
 }
